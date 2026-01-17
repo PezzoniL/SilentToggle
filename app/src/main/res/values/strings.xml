@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SilentToggle</string>
+    <string name="silent_toggle_title_label">Silent</string>
+</resources>
