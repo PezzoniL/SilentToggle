@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
@@ -93,7 +94,7 @@ fun AppContent(modifier: Modifier = Modifier, name: String, viewModel: AudioView
                     verticalAlignment = Alignment.CenterVertically
                 ) {
 
-                    Image(painter = painterResource(id = R.drawable.mute_off), contentDescription = null)
+                    Icon(painter = painterResource(id = R.drawable.mute_off), contentDescription = null)
 
                     Switch(
                         checked = muteStatus,
@@ -102,7 +103,7 @@ fun AppContent(modifier: Modifier = Modifier, name: String, viewModel: AudioView
                         }
                     )
 
-                    Image(painter = painterResource(id = R.drawable.mute_on), contentDescription = null)
+                    Icon(painter = painterResource(id = R.drawable.mute_on), contentDescription = null)
                 }
             } else {
                 Spacer(modifier = Modifier.height(16.dp))

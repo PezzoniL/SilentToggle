@@ -33,7 +33,9 @@ class AudioViewModel: ViewModel() {
     fun readInitialMuteStatus(context: Context) {
         checkNotificationPolicyAccess(context)
         val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        // Consider both VIBRATE and SILENT as muted states
         _muteStatus.value = audioManager.ringerMode == AudioManager.RINGER_MODE_SILENT
+        //_muteStatus.value = audioManager.ringerMode != AudioManager.RINGER_MODE_NORMAL
     }
 
     fun checkNotificationPolicyAccess(context: Context): Boolean {
@@ -47,6 +49,7 @@ class AudioViewModel: ViewModel() {
         val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         try {
             audioManager.ringerMode = AudioManager.RINGER_MODE_SILENT
+            //audioManager.ringerMode = AudioManager.RINGER_MODE_VIBRATE
         } catch (e: SecurityException) {
             _hasNotificationPolicyAccess.value = false
         }
